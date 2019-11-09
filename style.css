@@ -9,6 +9,9 @@
     color: white;
     text-decoration: underline white;
 }
+.navbar.navbar-expand-lg .navbar-toggler-icon {
+    color: white;
+}
 
 section {
     background-color: #EDEDED;
