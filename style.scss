@@ -1,0 +1,83 @@
+$main-color: #ff6a02;
+$background-color: #EDEDED;
+$main-font-color: #2B2B2B;
+$yellow: #fdcc09;
+$dark-grey: #3e3e3e;
+
+@mixin ring ($size, $color) {
+  content : '';
+  border-radius : 50%;
+  border : (2px  + 2px * $size) solid $color;
+  padding : (15px + 10px * $size);
+  margin : 20px;
+  display : inline-block;
+  box-shadow : 0.5px*$size 0.5px*$size 0.5px*$size 0.5px*$size darken($color, 15%),
+  inset 0.5px*$size 0.5px*$size 0.3px*$size 0.5px*$size darken($color, 15%);
+}
+
+.navbar.navbar-expand-lg {
+  background-color: $main-color;
+  .nav-link{
+    color: white;
+    font-size: 20px;
+    &:hover{
+      color: white;
+      text-decoration: underline white;
+    }
+  }
+}
+
+section {
+  background-color: $background-color;
+  color: $main-font-color;
+  padding: 15px;
+}
+
+#main h2 {
+  text-align : center;
+  display : inline-block;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+.orange-ring {
+  @include ring(1.5, $main-color);
+}
+
+.yellow-ring {
+  @include ring(8, $yellow);
+}
+
+.row {
+  align-items : center;
+}
+
+header {
+  margin-bottom: 10vh;
+}
+
+footer.row {
+  background-color: $main-color;
+  margin: 0;
+  margin-top: 10vh;
+  ul {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+  }
+}
+
+@for $i from 1 through 6 {
+  .ring>div:nth-child(#{$i}) {
+    @include ring($i*0.5, $dark-grey);
+    margin-left : -10px * $i;
+    margin-right : 5px * $i;
+    margin-bottom : 20px;
+    margin-top : 20px;
+  }
+}
